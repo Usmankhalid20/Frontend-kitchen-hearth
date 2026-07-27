@@ -1,0 +1,193 @@
+/**
+ * Clean Structured Data for Kitchen Hearth Landing Page Sections
+ */
+
+export const EXPLORE_CATEGORIES = [
+  { id: 'all', label: 'All Recipes' },
+  { id: 'quick', label: '⚡ Quick & Easy' },
+  { id: 'protein', label: '💪 High Protein' },
+  { id: 'veg', label: '🌱 Vegetarian' },
+  { id: 'desserts', label: '🍰 Desserts' },
+];
+
+export const FEATURE_SHOWCASE_ITEMS = [
+  {
+    tag: 'AI-Powered',
+    title: 'Instant AI Recipe Generation',
+    description: 'Describe what you want — ingredients, cravings, dietary preferences, or a cuisine — and our AI creates a complete, restaurant-quality recipe in seconds. No scrolling through ads or blog posts.',
+    image: '/images/feature-ai-generator.png',
+    reverse: false,
+  },
+  {
+    tag: 'Organize',
+    title: 'Save & Organize Recipes',
+    description: 'Build your personal digital cookbook. Save AI-generated recipes, organize them by cuisine or meal type, and access them anytime from any device. Your favorites, always at your fingertips.',
+    image: '/images/feature-saved-recipes.png',
+    reverse: true,
+  },
+  {
+    tag: 'Plan',
+    title: 'Plan Your Week',
+    description: 'Generate weekly meal plans with a single click. Our AI considers your preferences, dietary needs, and schedule to create balanced meal plans — complete with auto-generated shopping lists.',
+    image: '/images/feature-meal-planner.png',
+    reverse: false,
+  },
+];
+
+export const EXPLORE_RECIPES = [
+  {
+    title: 'Chicken Tikka',
+    category: 'protein',
+    image: 'https://images.unsplash.com/photo-1599487488170-d11ec9c172f0?ixlib=rb-4.0.3&auto=format&fit=crop&w=600&q=80',
+    time: '45 min',
+    calories: '485 cal',
+    difficulty: 'Medium',
+    servings: 4,
+    diffColor: 'bg-amber-100 text-amber-700',
+  },
+  {
+    title: 'Quick Pasta',
+    category: 'quick',
+    image: 'https://images.unsplash.com/photo-1473093295043-cdd812d0e601?ixlib=rb-4.0.3&auto=format&fit=crop&w=600&q=80',
+    time: '15 min',
+    calories: '380 cal',
+    difficulty: 'Easy',
+    servings: 2,
+    diffColor: 'bg-green-100 text-green-700',
+  },
+  {
+    title: 'Biryani',
+    category: 'protein',
+    image: 'https://images.unsplash.com/photo-1633945274405-b6c8069047b0?ixlib=rb-4.0.3&auto=format&fit=crop&w=600&q=80',
+    time: '60 min',
+    calories: '620 cal',
+    difficulty: 'Hard',
+    servings: 6,
+    diffColor: 'bg-red-100 text-red-700',
+  },
+  {
+    title: 'Homemade Pizza',
+    category: 'quick',
+    image: 'https://images.unsplash.com/photo-1513104890138-7c749659a591?ixlib=rb-4.0.3&auto=format&fit=crop&w=600&q=80',
+    time: '35 min',
+    calories: '450 cal',
+    difficulty: 'Medium',
+    servings: 4,
+    diffColor: 'bg-amber-100 text-amber-700',
+  },
+  {
+    title: 'Vegetarian Bowl',
+    category: 'veg',
+    image: 'https://images.unsplash.com/photo-1512621776951-a57141f2eefd?ixlib=rb-4.0.3&auto=format&fit=crop&w=600&q=80',
+    time: '20 min',
+    calories: '320 cal',
+    difficulty: 'Easy',
+    servings: 2,
+    diffColor: 'bg-green-100 text-green-700',
+  },
+  {
+    title: 'Pan-Seared Salmon',
+    category: 'protein',
+    image: 'https://images.unsplash.com/photo-1467003909585-2f8a72700288?ixlib=rb-4.0.3&auto=format&fit=crop&w=600&q=80',
+    time: '20 min',
+    calories: '520 cal',
+    difficulty: 'Medium',
+    servings: 2,
+    diffColor: 'bg-amber-100 text-amber-700',
+  },
+  {
+    title: 'Avocado Toast & Eggs',
+    category: 'quick',
+    image: 'https://images.unsplash.com/photo-1525351484163-7529414344d8?ixlib=rb-4.0.3&auto=format&fit=crop&w=600&q=80',
+    time: '10 min',
+    calories: '290 cal',
+    difficulty: 'Easy',
+    servings: 1,
+    diffColor: 'bg-green-100 text-green-700',
+  },
+  {
+    title: 'Greek Salad',
+    category: 'veg',
+    image: 'https://images.unsplash.com/photo-1540420773420-3366772f4999?ixlib=rb-4.0.3&auto=format&fit=crop&w=600&q=80',
+    time: '12 min',
+    calories: '240 cal',
+    difficulty: 'Easy',
+    servings: 2,
+    diffColor: 'bg-green-100 text-green-700',
+  },
+  {
+    title: 'Berry Pancake Stack',
+    category: 'desserts',
+    image: 'https://images.unsplash.com/photo-1567620905732-2d1ec7ab7445?ixlib=rb-4.0.3&auto=format&fit=crop&w=600&q=80',
+    time: '25 min',
+    calories: '410 cal',
+    difficulty: 'Easy',
+    servings: 3,
+    diffColor: 'bg-green-100 text-green-700',
+  },
+  {
+    title: 'Chocolate Lava Cake',
+    category: 'desserts',
+    image: 'https://images.unsplash.com/photo-1606313564200-e75d5e30476c?ixlib=rb-4.0.3&auto=format&fit=crop&w=600&q=80',
+    time: '30 min',
+    calories: '490 cal',
+    difficulty: 'Medium',
+    servings: 2,
+    diffColor: 'bg-amber-100 text-amber-700',
+  },
+];
+
+export const COMPARISON_ROWS = [
+  { traditional: 'Scroll through ads and pop-ups', hearth: 'Instant AI-generated recipe' },
+  { traditional: 'Read long blog posts for one recipe', hearth: 'Clear, structured instructions' },
+  { traditional: 'Manually calculate servings', hearth: 'Auto-adjust servings instantly' },
+  { traditional: 'Search for ingredient substitutions', hearth: 'AI suggests smart alternatives' },
+  { traditional: 'Plan meals separately in spreadsheets', hearth: 'Built-in weekly meal planning' },
+];
+
+export const TESTIMONIALS_DATA = [
+  {
+    name: 'Sarah Ahmed',
+    role: 'Home Cook',
+    avatar: 'https://ui-avatars.com/api/?name=Sarah+Ahmed&background=fef3c7&color=d97706&bold=true&size=80',
+    rating: 5,
+    quote: 'Kitchen Hearth turned random ingredients in my fridge into a dinner my family loved. I never knew cooking could be this effortless.',
+  },
+  {
+    name: 'James Wilson',
+    role: 'Meal Prep Enthusiast',
+    avatar: 'https://ui-avatars.com/api/?name=James+Wilson&background=dbeafe&color=2563eb&bold=true&size=80',
+    rating: 5,
+    quote: 'The meal planning feature is a game changer. I prep my entire week in 10 minutes and the shopping lists save me hours at the store.',
+  },
+  {
+    name: 'Priya Sharma',
+    role: 'Food Blogger',
+    avatar: 'https://ui-avatars.com/api/?name=Priya+Sharma&background=fce7f3&color=db2777&bold=true&size=80',
+    rating: 5,
+    quote: 'As someone who creates recipes daily, I\'m blown away by the quality. The AI understands spice profiles, cuisines, and dietary needs perfectly.',
+  },
+];
+
+export const FAQ_DATA = [
+  {
+    question: 'Is the recipe generation free?',
+    answer: 'Yes! You can generate unlimited recipes for free. We offer a generous free tier that covers most home cooks. Premium features like advanced meal planning and nutrition tracking are available with a paid plan.',
+  },
+  {
+    question: 'Can I use my own ingredients?',
+    answer: 'Absolutely. Just type the ingredients you have on hand, and our AI will create a recipe using exactly what you have. No need to run to the store — cook with what you already have.',
+  },
+  {
+    question: 'Does it support vegetarian and halal recipes?',
+    answer: 'Yes, Kitchen Hearth supports a wide range of dietary preferences including vegetarian, vegan, halal, kosher, gluten-free, keto, and more. Simply mention your dietary requirements and the AI will adapt accordingly.',
+  },
+  {
+    question: 'Can I save recipes?',
+    answer: 'Yes! Every recipe you generate can be saved to your personal cookbook. You can organize recipes by category, cuisine, or meal type and access them anytime from any device.',
+  },
+  {
+    question: 'Does it create shopping lists?',
+    answer: 'Yes. When you plan your meals for the week, Kitchen Hearth automatically generates a consolidated shopping list organized by grocery store aisle. You can check off items as you shop.',
+  },
+];
