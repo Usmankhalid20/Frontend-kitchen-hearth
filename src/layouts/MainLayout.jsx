@@ -5,7 +5,7 @@ import Footer from '../components/layout/Footer';
 
 const MainLayout = () => {
   return (
-    <div className="min-h-screen flex flex-col w-full text-gray-900 bg-white">
+    <div className="min-h-screen flex flex-col w-full text-gray-900" style={{ backgroundColor: 'var(--color-bg, #FFFDF8)' }}>
       <Navbar />
       <main className="flex-1 w-full flex flex-col">
         <Outlet />
