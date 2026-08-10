@@ -1,11 +1,36 @@
 import { useEffect, useRef, useState } from 'react';
 import { motion } from 'framer-motion';
+import { ChefHat, Star, Users, TrendingUp } from 'lucide-react';
 
 const stats = [
-  { value: 100000, suffix: '+', label: 'Recipes Generated', prefix: '' },
-  { value: 15000, suffix: '+', label: 'Active Home Cooks', prefix: '' },
-  { value: 4.9, suffix: '/5', label: 'Average Rating', prefix: '' },
-  { value: 98, suffix: '%', label: 'Recipe Success Rate', prefix: '' },
+  {
+    value: 100000,
+    suffix: '+',
+    label: 'Recipes Generated',
+    icon: <ChefHat className="w-5 h-5 text-amber-500" />,
+    iconBg: 'bg-amber-50',
+  },
+  {
+    value: 15000,
+    suffix: '+',
+    label: 'Active Home Cooks',
+    icon: <Users className="w-5 h-5 text-blue-500" />,
+    iconBg: 'bg-blue-50',
+  },
+  {
+    value: 4.9,
+    suffix: '/5',
+    label: 'Average Rating',
+    icon: <Star className="w-5 h-5 text-amber-400 fill-amber-400" />,
+    iconBg: 'bg-amber-50',
+  },
+  {
+    value: 98,
+    suffix: '%',
+    label: 'Recipe Success Rate',
+    icon: <TrendingUp className="w-5 h-5 text-green-500" />,
+    iconBg: 'bg-green-50',
+  },
 ];
 
 const formatNumber = (num) => {
@@ -59,26 +84,35 @@ const SocialProof = () => {
   }, []);
 
   return (
-    <section ref={ref} className="section-padding border-t border-gray-100" style={{ backgroundColor: 'var(--color-bg)' }}>
+    <section ref={ref} className="section-padding border-t border-gray-100" style={{ backgroundColor: 'var(--color-bg-alt)' }}>
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-        {/* Stats Grid */}
-        <div className="grid grid-cols-2 md:grid-cols-4 gap-8 md:gap-12 mb-12">
+        {/* Stats Grid — elevated individual cards */}
+        <div className="grid grid-cols-2 md:grid-cols-4 gap-5 md:gap-6 mb-14">
           {stats.map((stat, i) => (
             <motion.div
               key={i}
-              initial={{ opacity: 0, y: 20 }}
+              initial={{ opacity: 0, y: 24 }}
               whileInView={{ opacity: 1, y: 0 }}
               viewport={{ once: true }}
               transition={{ delay: i * 0.1, duration: 0.5 }}
-              className="text-center"
+              className="stat-card flex flex-col items-center text-center"
             >
+              {/* Icon */}
+              <div className={`w-10 h-10 rounded-2xl ${stat.iconBg} flex items-center justify-center mb-3`}>
+                {stat.icon}
+              </div>
               <AnimatedCounter value={stat.value} suffix={stat.suffix} inView={inView} />
-              <p className="text-sm text-gray-500 mt-1 font-medium">{stat.label}</p>
+              <p className="text-sm mt-1.5 font-medium" style={{ color: 'var(--color-text-secondary)' }}>
+                {stat.label}
+              </p>
             </motion.div>
           ))}
         </div>
 
-        {/* Brand logos */}
+        {/* As seen in */}
+        <div className="text-center mb-5">
+          <p className="text-xs font-semibold uppercase tracking-wider text-gray-400">As seen in</p>
+        </div>
         <div className="flex items-center justify-center gap-8 md:gap-14 flex-wrap opacity-30">
           {brandNames.map((name) => (
             <span key={name} className="text-sm font-bold tracking-wider uppercase text-gray-400">
