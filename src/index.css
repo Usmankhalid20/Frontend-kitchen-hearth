@@ -4,10 +4,11 @@
 /* ── Design Tokens ── */
 :root {
   /* Colors */
-  --color-bg: #FFFDF8;
+  --color-bg: #FDFBF7;          /* warm cream — odd sections */
+  --color-bg-alt: #FFFFFF;      /* pure white — even sections */
   --color-bg-secondary: #FEF7E6;
   --color-text: #0F172A;
-  --color-text-secondary: #64748B;
+  --color-text-secondary: #334155;   /* upgraded from #64748B → WCAG AA 5.8:1 */
   --color-accent: #F59E0B;
   --color-accent-hover: #D97706;
   --color-border: #F1F5F9;
@@ -35,7 +36,7 @@ body {
   color: var(--color-text);
 }
 
-/* ── 3D Utilities ── */
+/* ── 3D / Perspective Utilities ── */
 
 .perspective-container {
   perspective: 1200px;
@@ -44,6 +45,18 @@ body {
 
 .preserve-3d {
   transform-style: preserve-3d;
+}
+
+/* Hero 2.5D card tilt */
+.hero-3d-card {
+  transform: rotateY(-6deg) rotateX(4deg);
+  transform-style: preserve-3d;
+  will-change: transform;
+  transition: transform 0.4s cubic-bezier(0.23, 1, 0.32, 1);
+}
+
+.hero-3d-card:hover {
+  transform: rotateY(-2deg) rotateX(1deg) translateY(-6px);
 }
 
 /* ── Glassmorphism ── */
@@ -66,6 +79,109 @@ body {
   box-shadow:
     0 8px 32px rgba(0, 0, 0, 0.2),
     inset 0 1px 0 rgba(255, 255, 255, 0.05);
+}
+
+/* Floating glassmorphic micro-badge */
+.glassmorphic-badge {
+  background: rgba(255, 255, 255, 0.88);
+  backdrop-filter: blur(16px);
+  -webkit-backdrop-filter: blur(16px);
+  border: 1px solid rgba(255, 255, 255, 0.7);
+  box-shadow:
+    0 4px 24px rgba(0, 0, 0, 0.08),
+    inset 0 1px 0 rgba(255, 255, 255, 0.9);
+  border-radius: 50px;
+  padding: 8px 14px;
+  display: inline-flex;
+  align-items: center;
+  gap: 6px;
+  font-size: 12px;
+  font-weight: 600;
+  color: #1e293b;
+  white-space: nowrap;
+  will-change: transform, opacity;
+}
+
+/* ── Glassmorphic Navbar ── */
+
+.navbar-glass {
+  background: rgba(255, 255, 255, 0.82);
+  backdrop-filter: blur(12px);
+  -webkit-backdrop-filter: blur(12px);
+  border-bottom: 1px solid rgba(255, 255, 255, 0.6);
+  box-shadow: 0 1px 0 rgba(0, 0, 0, 0.04);
+  transition: background 0.3s ease, box-shadow 0.3s ease, border-color 0.3s ease;
+}
+
+.navbar-glass-scrolled {
+  background: rgba(255, 255, 255, 0.94);
+  backdrop-filter: blur(20px);
+  -webkit-backdrop-filter: blur(20px);
+  border-bottom: 1px solid rgba(245, 158, 11, 0.15);
+  box-shadow: 0 4px 24px rgba(0, 0, 0, 0.06), 0 1px 0 rgba(245, 158, 11, 0.1);
+}
+
+/* ── Stat Cards (SocialProof) ── */
+
+.stat-card {
+  background: var(--color-card);
+  border: 1px solid rgba(0, 0, 0, 0.04);
+  border-radius: 20px;
+  padding: 24px 20px;
+  box-shadow:
+    0 1px 3px rgba(0, 0, 0, 0.04),
+    0 4px 24px rgba(0, 0, 0, 0.03),
+    inset 0 1px 0 rgba(255, 255, 255, 0.8);
+  transition: box-shadow 0.3s ease, transform 0.3s ease;
+  will-change: transform;
+}
+
+.stat-card:hover {
+  box-shadow:
+    0 4px 12px rgba(0, 0, 0, 0.06),
+    0 12px 40px rgba(0, 0, 0, 0.06),
+    inset 0 1px 0 rgba(255, 255, 255, 0.8);
+  transform: translateY(-3px);
+}
+
+/* ── Victory Column (Comparison) ── */
+
+.victory-column {
+  background: rgba(254, 243, 199, 0.35);
+  border-left: 2px solid #F59E0B;
+  box-shadow: inset 4px 0 20px rgba(245, 158, 11, 0.06);
+}
+
+.victory-column-header {
+  background: rgba(245, 158, 11, 0.1);
+  border-bottom: 1px solid rgba(245, 158, 11, 0.2);
+}
+
+/* ── Nutrient Chip ── */
+
+.nutrient-chip {
+  display: inline-flex;
+  align-items: center;
+  gap: 3px;
+  padding: 2px 8px;
+  border-radius: 50px;
+  font-size: 10px;
+  font-weight: 700;
+  background: rgba(245, 158, 11, 0.08);
+  color: #92400e;
+  border: 1px solid rgba(245, 158, 11, 0.15);
+}
+
+/* ── Sticky Scroll Feature Showcase ── */
+
+.sticky-feature-track {
+  will-change: transform;
+}
+
+.feature-image-layer {
+  position: absolute;
+  inset: 0;
+  will-change: opacity, transform;
 }
 
 /* ── Animations ── */
@@ -148,10 +264,28 @@ body {
   animation: pulse-dot 1.5s ease-in-out infinite;
 }
 
+@keyframes badge-float-1 {
+  0%, 100% { transform: translateY(0px) rotate(-2deg); }
+  50% { transform: translateY(-8px) rotate(0deg); }
+}
+
+@keyframes badge-float-2 {
+  0%, 100% { transform: translateY(0px) rotate(2deg); }
+  50% { transform: translateY(-6px) rotate(0deg); }
+}
+
+.badge-float-1 {
+  animation: badge-float-1 4s ease-in-out infinite;
+}
+
+.badge-float-2 {
+  animation: badge-float-2 5s ease-in-out 0.5s infinite;
+}
+
 /* ── Gradient Text ── */
 
 .gradient-text {
-  background: linear-gradient(135deg, #F59E0B 0%, #EA580C 100%);
+  background: linear-gradient(135deg, #F59E0B 0%, #EA580C 60%, #DC2626 100%);
   -webkit-background-clip: text;
   -webkit-text-fill-color: transparent;
   background-clip: text;
@@ -201,4 +335,37 @@ body {
 .premium-card:hover {
   box-shadow: 0 4px 12px rgba(0, 0, 0, 0.06), 0 12px 40px rgba(0, 0, 0, 0.06);
   transform: translateY(-2px);
+}
+
+/* ── Reduced Motion Fallback ── */
+
+@media (prefers-reduced-motion: reduce) {
+  .hero-3d-card,
+  .hero-3d-card:hover {
+    transform: none;
+    transition: none;
+  }
+
+  .badge-float-1,
+  .badge-float-2,
+  .float-slow,
+  .float-anim,
+  .amber-glow {
+    animation: none;
+  }
+
+  .sticky-feature-track {
+    will-change: auto;
+  }
+
+  .feature-image-layer {
+    will-change: auto;
+  }
+
+  /* Show all feature images statically when motion is reduced */
+  .feature-image-layer {
+    position: relative;
+    opacity: 1 !important;
+    transform: none !important;
+  }
 }

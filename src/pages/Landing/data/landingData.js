@@ -44,6 +44,9 @@ export const EXPLORE_RECIPES = [
     difficulty: 'Medium',
     servings: 4,
     diffColor: 'bg-amber-100 text-amber-700',
+    protein: '38g',
+    carbs: '12g',
+    fat: '18g',
   },
   {
     title: 'Quick Pasta',
@@ -54,6 +57,9 @@ export const EXPLORE_RECIPES = [
     difficulty: 'Easy',
     servings: 2,
     diffColor: 'bg-green-100 text-green-700',
+    protein: '14g',
+    carbs: '62g',
+    fat: '8g',
   },
   {
     title: 'Biryani',
@@ -64,6 +70,9 @@ export const EXPLORE_RECIPES = [
     difficulty: 'Hard',
     servings: 6,
     diffColor: 'bg-red-100 text-red-700',
+    protein: '42g',
+    carbs: '74g',
+    fat: '22g',
   },
   {
     title: 'Homemade Pizza',
@@ -74,6 +83,9 @@ export const EXPLORE_RECIPES = [
     difficulty: 'Medium',
     servings: 4,
     diffColor: 'bg-amber-100 text-amber-700',
+    protein: '18g',
+    carbs: '56g',
+    fat: '16g',
   },
   {
     title: 'Vegetarian Bowl',
@@ -84,6 +96,9 @@ export const EXPLORE_RECIPES = [
     difficulty: 'Easy',
     servings: 2,
     diffColor: 'bg-green-100 text-green-700',
+    protein: '12g',
+    carbs: '48g',
+    fat: '9g',
   },
   {
     title: 'Pan-Seared Salmon',
@@ -94,6 +109,9 @@ export const EXPLORE_RECIPES = [
     difficulty: 'Medium',
     servings: 2,
     diffColor: 'bg-amber-100 text-amber-700',
+    protein: '46g',
+    carbs: '4g',
+    fat: '28g',
   },
   {
     title: 'Avocado Toast & Eggs',
@@ -104,6 +122,9 @@ export const EXPLORE_RECIPES = [
     difficulty: 'Easy',
     servings: 1,
     diffColor: 'bg-green-100 text-green-700',
+    protein: '14g',
+    carbs: '24g',
+    fat: '16g',
   },
   {
     title: 'Greek Salad',
@@ -114,6 +135,9 @@ export const EXPLORE_RECIPES = [
     difficulty: 'Easy',
     servings: 2,
     diffColor: 'bg-green-100 text-green-700',
+    protein: '8g',
+    carbs: '18g',
+    fat: '14g',
   },
   {
     title: 'Berry Pancake Stack',
@@ -124,6 +148,9 @@ export const EXPLORE_RECIPES = [
     difficulty: 'Easy',
     servings: 3,
     diffColor: 'bg-green-100 text-green-700',
+    protein: '10g',
+    carbs: '68g',
+    fat: '12g',
   },
   {
     title: 'Chocolate Lava Cake',
@@ -134,6 +161,9 @@ export const EXPLORE_RECIPES = [
     difficulty: 'Medium',
     servings: 2,
     diffColor: 'bg-amber-100 text-amber-700',
+    protein: '7g',
+    carbs: '62g',
+    fat: '24g',
   },
 ];
 

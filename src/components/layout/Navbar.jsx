@@ -26,9 +26,7 @@ const Navbar = () => {
   return (<>
     <nav
       className={`sticky top-0 w-full z-50 transition-all duration-300 ${
-        scrolled
-          ? 'bg-white/90 backdrop-blur-xl border-b border-gray-200/60 shadow-xs'
-          : 'bg-white/70 backdrop-blur-md border-b border-gray-100/80'
+        scrolled ? 'navbar-glass-scrolled' : 'navbar-glass'
       }`}
     >
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
@@ -39,7 +37,7 @@ const Navbar = () => {
               <div className={`p-2 rounded-xl transition-colors ${scrolled ? 'bg-amber-100' : 'bg-amber-100/80'} group-hover:bg-amber-200`}>
                 <ChefHat className="h-5 w-5 text-amber-600" />
               </div>
-              <span className={`font-bold text-lg tracking-tight transition-colors ${scrolled ? 'text-gray-900' : 'text-gray-900'}`}>
+              <span className="font-bold text-lg tracking-tight text-gray-900">
                 Kitchen Hearth
               </span>
             </Link>
