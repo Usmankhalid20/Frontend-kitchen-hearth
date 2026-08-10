@@ -1,16 +1,95 @@
-# React + Vite
+# 🍽️ Kitchen Hearth — Frontend
 
-This template provides a minimal setup to get React working in Vite with HMR and some Oxlint rules.
+> **Your personal AI sous-chef.** Turn ingredients into restaurant-quality recipes with the power of AI.
 
-Currently, two official plugins are available:
+The Kitchen Hearth frontend is a React + Vite single-page application that connects to the Kitchen Hearth backend API to deliver AI-powered recipe generation, meal planning, and recipe discovery.
 
-- [@vitejs/plugin-react](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react) uses [Oxc](https://oxc.rs)
-- [@vitejs/plugin-react-swc](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react-swc) uses [SWC](https://swc.rs/)
+---
 
-## React Compiler
+## ✨ Features
 
-The React Compiler is not enabled on this template because of its impact on dev & build performances. To add it, see [this documentation](https://react.dev/learn/react-compiler/installation).
+- **AI Recipe Generation** — Describe ingredients or a meal idea and get a full recipe instantly
+- **Recipe Discovery** — Browse and search a curated library of recipes
+- **Saved Recipes** — Bookmark and revisit your favourites
+- **Meal Planner** — Organise your weekly meals at a glance
+- **User Authentication** — Secure sign-up / login with JWT-based sessions
+- **Admin Panel** — Manage users and content from a dedicated admin dashboard
 
-## Expanding the Oxlint configuration
+---
 
-If you are developing a production application, we recommend using TypeScript with type-aware lint rules enabled. Check out the [TS template](https://github.com/vitejs/vite/tree/main/packages/create-vite/template-react-ts) for information on how to integrate TypeScript and Oxlint's TypeScript related rules in your project.
+## 🛠️ Tech Stack
+
+| Technology | Purpose |
+|---|---|
+| React 19 + Vite | UI framework & build tool |
+| React Router v7 | Client-side routing |
+| Tailwind CSS v4 | Utility-first styling |
+| Framer Motion | Animations & transitions |
+| GSAP | Advanced scroll animations |
+| Zustand | Global state management |
+| Axios | HTTP client |
+| Lucide React | Icon library |
+
+---
+
+## 📁 Project Structure
+
+```
+src/
+├── components/        # Shared / reusable UI components
+├── layouts/           # Page layout wrappers
+├── pages/
+│   ├── Landing/       # Public landing page
+│   ├── Auth/          # Login & Register
+│   ├── user/
+│   │   ├── AIAssistant/   # AI recipe generator
+│   │   ├── Dashboard/     # User dashboard
+│   │   ├── Recipes/       # Saved recipes
+│   │   ├── MealPlanner/   # Weekly meal planner
+│   │   └── Settings/      # Account settings
+│   └── admin/         # Admin panel
+├── routes/            # Route definitions & auth guards
+├── services/          # Axios API call wrappers
+└── stores/            # Zustand state stores
+```
+
+---
+
+## 🚀 Getting Started
+
+### Prerequisites
+
+- Node.js ≥ 18
+- Kitchen Hearth backend running on `http://localhost:5000`
+
+### Install & run
+
+```bash
+npm install
+npm run dev    # http://localhost:5173
+```
+
+### Environment
+
+Create a `.env` file in this directory if you need to override the API base URL:
+
+```env
+VITE_API_URL=http://localhost:5000
+```
+
+---
+
+## 📜 Scripts
+
+| Command | Description |
+|---|---|
+| `npm run dev` | Start Vite dev server |
+| `npm run build` | Production build |
+| `npm run preview` | Preview production build |
+| `npm run lint` | Run Oxlint |
+
+---
+
+## 📄 License
+
+MIT © Kitchen Hearth
