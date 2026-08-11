@@ -74,7 +74,10 @@ export const useAuthStore = create((set) => ({
   },
 
   updateUser: (updatedUser) => {
-    localStorage.setItem('user', JSON.stringify(updatedUser));
-    set({ user: updatedUser });
+    set((state) => {
+      const mergedUser = { ...state.user, ...updatedUser };
+      localStorage.setItem('user', JSON.stringify(mergedUser));
+      return { user: mergedUser };
+    });
   }
 }));
