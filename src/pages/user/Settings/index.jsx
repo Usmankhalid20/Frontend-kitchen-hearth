@@ -1,4 +1,4 @@
-import React, { useState, useRef } from 'react';
+import React, { useState, useEffect, useRef } from 'react';
 import { useAuthStore } from '../../../stores/authStore';
 import { authService } from '../../../services/auth.service';
 import { User, Mail, Shield, Calendar, Edit2, Upload, X, Save, Camera } from 'lucide-react';
@@ -18,6 +18,16 @@ const UserSettings = () => {
   const [avatarFile, setAvatarFile] = useState(null);
   const [avatarPreview, setAvatarPreview] = useState(user?.avatar || null);
 
+  useEffect(() => {
+    if (user) {
+      setFormData({
+        firstName: user.firstName || '',
+        lastName: user.lastName || ''
+      });
+      setAvatarPreview(user.avatar || null);
+    }
+  }, [user]);
+
   if (!user) return null;
 
   const handleChange = (e) => {
@@ -30,6 +40,17 @@ const UserSettings = () => {
       setAvatarFile(file);
       setAvatarPreview(URL.createObjectURL(file));
     }
+  };
+
+  const handleCancel = () => {
+    setIsEditing(false);
+    setError(null);
+    setAvatarFile(null);
+    setFormData({
+      firstName: user?.firstName || '',
+      lastName: user?.lastName || ''
+    });
+    setAvatarPreview(user?.avatar || null);
   };
 
   const handleSubmit = async (e) => {
@@ -49,6 +70,7 @@ const UserSettings = () => {
       if (res.success) {
         updateUser(res.user);
         setIsEditing(false);
+        setAvatarFile(null);
       }
     } catch (err) {
       setError(err.response?.data?.message || 'Failed to update profile');
@@ -83,7 +105,10 @@ const UserSettings = () => {
       <div className="bg-white shadow-sm rounded-2xl overflow-hidden border border-gray-100">
         <div className="p-8 sm:flex sm:items-center sm:justify-between bg-gradient-to-r from-amber-500 to-orange-400 relative">
           <div className="sm:flex sm:items-center w-full">
-            <div className="relative group shrink-0">
+            <div 
+              className={`relative shrink-0 ${isEditing ? 'cursor-pointer group' : ''}`}
+              onClick={() => isEditing && fileInputRef.current?.click()}
+            >
               {avatarPreview ? (
                 <img 
                   src={avatarPreview} 
@@ -97,12 +122,22 @@ const UserSettings = () => {
               )}
               
               {isEditing && (
-                <div 
-                  className="absolute inset-0 bg-black bg-opacity-40 rounded-full flex items-center justify-center cursor-pointer opacity-0 group-hover:opacity-100 transition-opacity"
-                  onClick={() => fileInputRef.current?.click()}
-                >
-                  <Camera className="w-8 h-8 text-white" />
-                </div>
+                <>
+                  <div className="absolute inset-0 bg-black/30 rounded-full flex items-center justify-center opacity-0 group-hover:opacity-100 transition-opacity">
+                    <Camera className="w-8 h-8 text-white" />
+                  </div>
+                  <button
+                    type="button"
+                    onClick={(e) => {
+                      e.stopPropagation();
+                      fileInputRef.current?.click();
+                    }}
+                    className="absolute bottom-0 right-0 p-2 bg-amber-500 hover:bg-amber-600 text-white rounded-full shadow-md border-2 border-white transition-transform hover:scale-110"
+                    title="Upload profile photo"
+                  >
+                    <Camera className="w-4 h-4" />
+                  </button>
+                </>
               )}
               <input 
                 type="file" 
@@ -118,6 +153,11 @@ const UserSettings = () => {
                 {formData.firstName} {formData.lastName}
               </h3>
               <p className="text-sm font-medium text-amber-100">@{user.username}</p>
+              {isEditing && (
+                <p className="mt-1 text-xs text-amber-200">
+                  {avatarFile ? `New photo selected: ${avatarFile.name}` : 'Click avatar or camera icon to upload photo'}
+                </p>
+              )}
             </div>
           </div>
         </div>
@@ -162,7 +202,7 @@ const UserSettings = () => {
                 <Button
                   type="button"
                   variant="secondary"
-                  onClick={() => setIsEditing(false)}
+                  onClick={handleCancel}
                 >
                   Cancel
                 </Button>

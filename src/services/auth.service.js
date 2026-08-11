@@ -17,11 +17,7 @@ export const authService = {
   },
 
   updateProfile: async (formData) => {
-    const response = await apiClient.put('/auth/me', formData, {
-      headers: {
-        'Content-Type': 'multipart/form-data',
-      },
-    });
+    const response = await apiClient.put('/auth/me', formData);
     return response.data;
   }
 };
