@@ -24,9 +24,10 @@ const adminRouteConfig = [
   { path: 'analytics', component: AIUsage, permission: 'analytics.read' },
   { path: 'audit-logs', component: AuditLogs, permission: 'audit.read' },
   { path: 'settings', component: Settings, permission: 'settings.manage' },
-  { path: 'profile', component: UserProfile, permission: 'settings.manage' },
+  { path: 'profile', component: UserProfile, permission: null },
 ];
 
+console.log("hello from frontend")
 const AdminRoutes = () => {
   return (
     <Routes>

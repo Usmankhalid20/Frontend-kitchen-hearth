@@ -68,9 +68,9 @@ const Auth = () => {
       const success = await login(formData.email, formData.password);
       if (success) {
         const currentUser = useAuthStore.getState().user;
-        const isAdmin =
-          currentUser?.role?.name === 'Admin' || currentUser?.role?.name === 'SuperAdmin';
-        window.location.href = isAdmin ? '/admin/dashboard' : '/user/dashboard';
+        const roleName = currentUser?.role?.name;
+        const isAdmin = roleName === 'Admin' || roleName === 'Super Admin' || roleName === 'SuperAdmin';
+        navigate(isAdmin ? '/admin/dashboard' : '/user/dashboard', { replace: true });
       }
     } else {
       if (!passwordsMatch) return;
@@ -88,9 +88,9 @@ const Auth = () => {
 
       if (success) {
         const currentUser = useAuthStore.getState().user;
-        const isAdmin =
-          currentUser?.role?.name === 'Admin' || currentUser?.role?.name === 'SuperAdmin';
-        window.location.href = isAdmin ? '/admin/dashboard' : '/user/dashboard';
+        const roleName = currentUser?.role?.name;
+        const isAdmin = roleName === 'Admin' || roleName === 'Super Admin' || roleName === 'SuperAdmin';
+        navigate(isAdmin ? '/admin/dashboard' : '/user/dashboard', { replace: true });
       }
     }
   };

@@ -25,6 +25,7 @@ const Sidebar = ({ isOpen, onClose }) => {
   };
 
   const hasPermission = (perm) => {
+    if (!perm) return true;
     if (!user || !user.role || !user.role.permissions) return false;
     return user.role.permissions.some(p => p.name === perm.toLowerCase());
   };
@@ -38,7 +39,7 @@ const Sidebar = ({ isOpen, onClose }) => {
     { name: 'AI Usage', path: '/admin/analytics', icon: LineChart, permission: 'analytics.read' },
     { name: 'Audit Logs', path: '/admin/audit-logs', icon: ListOrdered, permission: 'audit.read' },
     { name: 'Settings', path: '/admin/settings', icon: Settings, permission: 'settings.manage' },
-    { name: 'User Profile', path: '/admin/profile', icon: User, permission: 'settings.manage' },
+    { name: 'User Profile', path: '/admin/profile', icon: User, permission: null },
   ];
 
   const visibleNavItems = navItems.filter(item => hasPermission(item.permission));
