@@ -27,6 +27,7 @@ const adminRouteConfig = [
   { path: 'profile', component: UserProfile, permission: null },
 ];
 
+console.log("hello from frontend")
 const AdminRoutes = () => {
   return (
     <Routes>
