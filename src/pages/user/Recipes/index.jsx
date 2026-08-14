@@ -2,13 +2,14 @@ import React, { useEffect, useState } from 'react';
 import { Link } from 'react-router-dom';
 import { useRecipeStore } from '../../../stores/recipeStore';
 import { Search, Heart, Clock, Users, ArrowRight, UtensilsCrossed } from 'lucide-react';
+import { getRecipeImage } from '../../../utils/imageHelper';
 
 const RecipeCard = ({ recipe, toggleFavorite }) => {
   return (
     <div className="bg-white border border-gray-100 rounded-2xl overflow-hidden shadow-sm hover:shadow-md transition-all group flex flex-col h-full">
       <div className="relative h-48 overflow-hidden bg-gray-100">
         <img 
-          src={recipe.image || 'https://images.unsplash.com/photo-1546069901-ba9599a7e63c'} 
+          src={getRecipeImage(recipe)} 
           alt={recipe.title} 
           className="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500"
         />
