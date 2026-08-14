@@ -3,6 +3,7 @@ import { useParams, Link, useNavigate } from 'react-router-dom';
 import { useRecipeStore } from '../../../stores/recipeStore';
 import { ArrowLeft, Heart, Clock, Users, ChefHat, Trash2 } from 'lucide-react';
 import Button from '../../../components/common/Button';
+import { getRecipeImage } from '../../../utils/imageHelper';
 
 const RecipeDetails = () => {
   const { id } = useParams();
@@ -45,7 +46,7 @@ const RecipeDetails = () => {
       <div className="bg-white rounded-3xl overflow-hidden shadow-sm border border-gray-100">
         <div className="relative h-80 md:h-96 w-full bg-gray-100">
           <img 
-            src={recipe.image || 'https://images.unsplash.com/photo-1546069901-ba9599a7e63c'} 
+            src={getRecipeImage(recipe)} 
             alt={recipe.title} 
             className="w-full h-full object-cover"
           />

@@ -5,6 +5,7 @@ import { useRecipeStore } from '../../../stores/recipeStore';
 import { useMealPlanStore } from '../../../stores/mealPlanStore';
 import { Wand2, UtensilsCrossed, CalendarDays, ArrowRight } from 'lucide-react';
 import Button from '../../../components/common/Button';
+import { getRecipeImage } from '../../../utils/imageHelper';
 
 const UserDashboard = () => {
   const { user } = useAuthStore();
@@ -95,7 +96,7 @@ const UserDashboard = () => {
               {recentRecipes.map(recipe => (
                 <div key={recipe._id} className="flex items-center gap-4 p-3 hover:bg-gray-50 rounded-xl transition-colors">
                   <div className="w-16 h-16 rounded-lg bg-gray-200 overflow-hidden shrink-0">
-                    <img src={recipe.image || 'https://images.unsplash.com/photo-1546069901-ba9599a7e63c'} alt={recipe.title} className="w-full h-full object-cover" />
+                    <img src={getRecipeImage(recipe)} alt={recipe.title} className="w-full h-full object-cover" />
                   </div>
                   <div className="flex-1 min-w-0">
                     <p className="text-sm font-bold text-gray-900 truncate">{recipe.title}</p>
